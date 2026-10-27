@@ -12,6 +12,7 @@ dependencies = ["SimpleITK>=2.3", "numpy>=1.24", "scipy>=1.11", "scikit-image>=0
 [project.optional-dependencies]
 idc = ["idc-index>=0.13"]
 segmentation = ["nibabel>=5.2", "scikit-learn>=1.4"]
+test = ["pytest>=8.0", "nibabel>=5.2", "scikit-learn>=1.4"]
 
 [project.scripts]
 ctqa = "ctqa.cli:main"
@@ -19,3 +20,7 @@ ctqa-shape-eda = "ctqa.shape_eda:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
