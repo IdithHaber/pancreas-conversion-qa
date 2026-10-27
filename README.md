@@ -33,6 +33,17 @@ ctqa run /path/to/DICOM_SERIES --out outputs
 
 Windows can use WSL2 with the same Ubuntu steps. On macOS, install `dcm2niix` with Homebrew (`brew install dcm2niix`).
 
+## Run the unit tests
+
+From the repository root, install the test extra and run pytest:
+
+```bash
+python -m pip install -e '.[test]'
+python -m pytest
+```
+
+The tests use small synthetic images and mocked converter/IDC calls; they do not download patient data or need `dcm2niix`. GitHub Actions runs the same suite on pushes and pull requests.
+
 ## Run from Chrome with Google Colab
 
 1. Open `notebooks/colab_quickstart.ipynb` in Colab (or upload it).
