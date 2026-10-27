@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pancreas-conversion-qa"
+version = "0.1.0"
+description = "Reproducible QA checks for CT DICOM to NIfTI conversion"
+requires-python = ">=3.10"
+dependencies = ["SimpleITK>=2.3", "numpy>=1.24", "scipy>=1.11", "scikit-image>=0.22", "pandas>=2.1", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+idc = ["idc-index>=0.13"]
+segmentation = ["nibabel>=5.2", "scikit-learn>=1.4"]
+
+[project.scripts]
+ctqa = "ctqa.cli:main"
+ctqa-shape-eda = "ctqa.shape_eda:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
